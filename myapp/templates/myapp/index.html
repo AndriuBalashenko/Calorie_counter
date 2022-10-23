@@ -11,7 +11,7 @@
             <div class="col-md-12">
                 <nav class="navbar navbar-dark bg-info">
                     <span class="navbar-brand">Калорийность продуктов</span>
-                    <a href="{% url 'index' %}" class="navbar-brand">Домой</a>
+                    <a href="{% url 'index' %}" class="navbar-brand"></a>
                 </nav>
             </div>
         </div>
@@ -31,7 +31,8 @@
                             <option value="{{food.name}}">{{food.name}}</option>
                             {% endfor %}
                         </select>
-                        <button class="btn btn-success" type="submit">Добавить</button>
+
+                        &ensp;<button class="btn btn-success" type="submit">Добавить</button>
                     </div>
                 </form>
             </div>
@@ -66,15 +67,17 @@
                         <th style="text-align:center">Белок (г)</th>
                         <th style="text-align:center">Жиры (г)</th>
                         <th style="text-align:center">Калории (Ккал)</th>
+                        <th style="text-align:center">Вес (гр.) </th>
                         <th style="text-align:center">Убрать продукт</th>
                     </tr>
                     {% for c in consumed_food %}
                     <tr>
                         <td style="text-align:center">{{c.food_consumed.name}}</td>
-                        <td style="text-align:center">{{c.food_consumed.carbs}}</td>
+                        <td style="text-align:center">{{c.food_consumed.carbs }}</td>
                         <td style="text-align:center">{{c.food_consumed.protein}}</td>
                         <td style="text-align:center">{{c.food_consumed.fats}}</td>
                         <td style="text-align:center">{{c.food_consumed.calories}}</td>
+                        <td style="text-align:center">{{c.food_consumed.weight}}</td>
                         <td style="text-align:center"><a class="btn btn-danger" href="{% url 'delete' c.pk %}">X</a>
                         </td>
                     </tr>
